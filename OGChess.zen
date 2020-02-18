@@ -8,21 +8,18 @@ class ConsoleChess
     function turn()
         var valid = false
         while !valid
-            var player = engine.getCurrentPlayer()
-            var name = player.getName()
-            var color = player.getColor()
-            var move = prompt(name + ' [' + color + ']: ')
+            var player = engine.currentPlayer
+            var move = prompt(player.name + ' [' + player.color + ']: ')
             valid = engine.move(move)
             
             if !valid
                 print('[error] The specified move is invalid.')
 
     function start()
-        var board = engine.getBoard()
-        while engine.isComplete()
+        while !engine.complete
             turn()
             turn()
-            print(board)
+            print(engine.board)
 
 function main(...arguments)
     var player1Name = prompt('[Player 1] Name: ')
