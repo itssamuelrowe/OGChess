@@ -1,3 +1,27 @@
+class Piece
+
+    @Property
+    var row
+    
+    @Property
+    var column
+    
+    @Property
+    var type
+    
+    @Property
+    var captured
+    
+    @Property
+    var color
+    
+    function new(row, column, type, captured, color)
+        this.row = row
+        this.column = column
+        this.type = type
+        this.captured = captured
+        this.color = color
+
 class ConsoleChess
 
     var engine
@@ -11,7 +35,7 @@ class ConsoleChess
             var player = engine.currentPlayer
             var move = prompt(player.name + ' [' + player.color + ']: ')
             valid = engine.move(move)
-            
+
             if !valid
                 print('[error] The specified move is invalid.')
 
